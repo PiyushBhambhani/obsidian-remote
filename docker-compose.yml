@@ -2,7 +2,7 @@ version: '3'
 
 services:
   obsidian:
-    image: ghcr.io/sytone/obsidian-remote:latest
+    build: .
     container_name: obsidian-remote
     restart: unless-stopped
     ports:
@@ -11,7 +11,6 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=America/Los_Angeles
-      - DOCKER_MODS=linuxserver/mods:universal-git
     volumes:
       - ./vaults:/vaults
       - ./config:/config
