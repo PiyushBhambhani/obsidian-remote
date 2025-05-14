@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: obsidian-remote
+    env: docker
+    dockerfilePath: ./Dockerfile
+    disk:
+      name: obsidian-data
+      mountPath: /vaults
+      sizeGB: 1
+    envVars:
+      - key: PUID
+        value: 1000
+      - key: PGID
+        value: 1000
+      - key: TZ
+        value: America/Los_Angeles
+    plan: free
